@@ -1,0 +1,18 @@
+<div class="profile-wrapper">
+    <section class="card" aria-label="User Profile Card">
+        <app-avatar
+        [src]="user.avatarUrl"
+        [alt]="user.name + ' ' + user.lastName"
+        >
+        </app-avatar>
+
+        <app-user-info class="user-info" [user]="user"></app-user-info>
+
+        <app-contact-button
+        [email]="user.email"
+        [phone]="user.phone"
+        (requestContact)="onRequestContact($event)"
+        ></app-contact-button>
+    </section>
+
+</div>

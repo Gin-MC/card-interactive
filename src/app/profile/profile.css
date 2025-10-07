@@ -1,0 +1,22 @@
+.profile-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    width: min(720px, 96%);
+    display: grid;
+    grid-template-columns: 120px 2fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    padding: 1.5rem 2rem;
+}
+
+.user-info{
+    margin-left: 50px;
+    margin-right: 20px;
+}

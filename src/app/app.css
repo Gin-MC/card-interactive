@@ -1,0 +1,7 @@
+.app-root{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: poppins, sans-serif;
+}
