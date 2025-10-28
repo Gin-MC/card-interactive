@@ -1,10 +1,12 @@
-.profile-wrapper{
+.profile-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    position: relative;
 }
 
-.card{
+.card {
     width: min(720px, 96%);
     display: grid;
     grid-template-columns: 120px 2fr auto;
@@ -16,7 +18,74 @@
     padding: 1.5rem 2rem;
 }
 
-.user-info{
+.user-info {
     margin-left: 50px;
     margin-right: 20px;
+}
+
+.contact-info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.contact-info-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.contact-detail {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f5f7fa;
+    border-radius: 8px;
+}
+
+.contact-detail span {
+    font-weight: bold;
+    color: #666;
+}
+
+.contact-detail p {
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.contact-detail button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.contact-detail button:hover {
+    background: #0056b3;
 }

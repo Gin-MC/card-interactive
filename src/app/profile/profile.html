@@ -1,18 +1,46 @@
 <div class="profile-wrapper">
     <section class="card" aria-label="User Profile Card">
         <app-avatar
-        [src]="user.avatarUrl"
-        [alt]="user.name + ' ' + user.lastName"
-        >
+            [src]="user.avatarUrl"
+            [alt]="user.name + ' ' + user.lastName"
+            (expand)="onAvatarExpand($event)">
         </app-avatar>
 
-        <app-user-info class="user-info" [user]="user"></app-user-info>
+        <app-user-info 
+            class="user-info" 
+            [user]="user">
+        </app-user-info>
 
         <app-contact-button
-        [email]="user.email"
-        [phone]="user.phone"
-        (requestContact)="onRequestContact($event)"
-        ></app-contact-button>
+            [email]="user.email"
+            [phone]="user.phone"
+            (requestContact)="onRequestContact($event)">
+        </app-contact-button>
     </section>
 
+    @if (showContactInfo) {
+        <div class="contact-info-overlay" (click)="closeContact()">
+            <div class="contact-info-modal" (click)="$event.stopPropagation()">
+                <button class="close-button" (click)="closeContact()">×</button>
+                
+                <h2>Información de Contacto</h2>
+                
+                @if (contactMethod === 'email' || contactMethod === 'both') {
+                    <div class="contact-detail">
+                        <span>Email:</span>
+                        <p>{{ user.email }}</p>
+                        <button (click)="copyEmailToClipboard()">Copiar Email</button>
+                    </div>
+                }
+
+                @if ((contactMethod === 'phone' || contactMethod === 'both') && user.phone) {
+                    <div class="contact-detail">
+                        <span>Teléfono:</span>
+                        <p>{{ user.phone }}</p>
+                        <button (click)="copyPhoneToClipboard()">Copiar Teléfono</button>
+                    </div>
+                }
+            </div>
+        </div>
+    }
 </div>

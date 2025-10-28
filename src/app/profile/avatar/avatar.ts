@@ -9,13 +9,15 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class Avatar {
   @Input() src?: string;
   @Input() alt: string = 'User Avatar';
-  @Output() expand = new EventEmitter<void>();
+  // Emite el estado actual de expansión (true = grande, false = pequeño)
+  @Output() expand = new EventEmitter<boolean>();
 
   islarge: boolean = false;
 
   toggleSize() {
     this.islarge = !this.islarge;
-    this.expand.emit();// Notifica al componente padre que se ha expandido o contraído el avatar
+    // Emitimos el nuevo estado para que el padre pueda reaccionar
+    this.expand.emit(this.islarge);
   }
 
   get initials(): string {

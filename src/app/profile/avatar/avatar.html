@@ -1,3 +1,9 @@
 <div>
-    <img [src]="src" [alt]="alt" class="avatar"/>
+    @if (src) {
+        <img (click)="toggleSize()" [class.large]="islarge" [src]="src" [alt]="alt" class="avatar"/>
+    } @else {
+        <div class="avatar initials" (click)="toggleSize()" [class.large]="islarge">
+            {{ initials }}
+        </div>
+    }
 </div>

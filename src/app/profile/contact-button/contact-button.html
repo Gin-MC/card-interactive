@@ -1,4 +1,6 @@
 <div class="contact-buttons">
-  <button (click)="request('email')">Contactar por Email</button>
-  <button (click)="request('phone')">Llamar</button>
+  <button (click)="request(ContactMethod.EMAIL)">Contactar por Email</button>
+  @if (phone) {
+    <button (click)="request(ContactMethod.PHONE)">Llamar</button>
+  }
 </div>
